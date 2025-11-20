@@ -2,3 +2,7 @@ numpy
 matplotlib
 pandas
 yfinance
+ipython
+seaborn
+statsmodels
+scipy
