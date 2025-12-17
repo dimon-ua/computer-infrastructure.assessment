@@ -1,3 +1,8 @@
+# This is a shebang line to specify the interpreter what language to use.
+#!/usr/bin/env python3
+
+
+
 # FAANG stock data plotting script.
 import yfinance as yf
 
@@ -43,3 +48,8 @@ def plot_data():
     ax.set_ylabel("Closing Price (USD)")
     ax.legend(title="Ticker")
     ax.set_title(df.index[-1].strftime("%Y-%m-%d"))
+
+
+# Adding this to ensure the function runs when the script is executed directly.
+if __name__ == "__main__":
+    plot_data()
