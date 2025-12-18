@@ -1,5 +1,6 @@
-# This is a shebang line to specify the interpreter what language to use.
 #!/usr/bin/env python3
+# This is a shebang line to specify the interpreter what language to use.
+
 
 
 
@@ -48,6 +49,10 @@ def plot_data():
     ax.set_ylabel("Closing Price (USD)")
     ax.legend(title="Ticker")
     ax.set_title(df.index[-1].strftime("%Y-%m-%d"))
+
+    file_name = now.strftime("%Y%m%d-%H%M%S") + ".png"
+    plt.savefig("plots/" + file_name)
+    plt.close()
 
 
 # Adding this to ensure the function runs when the script is executed directly.
