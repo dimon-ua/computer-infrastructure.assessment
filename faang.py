@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # This is a shebang line to specify the interpreter what language to use.
 
 
