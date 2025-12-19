@@ -1,10 +1,37 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push, workflow_dispatch]
+name: Weekly FAANG Script
+run-name: ${{ github.actor }} is running FAANG script 🚀
+on:
+  workflow_dispatch: # Manual trigger
+  schedule:
+    # From https://crontab.guru/#0_8_*_*_6
+    - cron: '0 8 * * SAT'  # Runs at 08:00 every Saturday
+
+permissions:
+  contents: write # required to push changes
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+        with: 
+          token: ${{ secrets.GITHUB_TOKEN }} # default token with write permissions
+          fetch-depth: 0 # ensure full history is fetched
+          
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run FAANG script
+        run: python faang.py
+
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
