@@ -35,6 +35,10 @@ jobs:
           python faang.py
 
       - name: List generated plots
+        working-directory: ${{ github.workspace }}
+        run: ls -l plots/
+
+      - name: List generated plots
         run: |
           ls plots/
 
