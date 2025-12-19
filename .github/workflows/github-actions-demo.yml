@@ -29,8 +29,9 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run FAANG script
-        run: python faang.py
+      - name: Run faang.py
+        run: |
+          python faang.py
 
       - name: List generated plots
         run: |
