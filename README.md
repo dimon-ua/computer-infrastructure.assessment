@@ -40,6 +40,7 @@ Key features:
 Example command:
 ```bash
 python faang.py
+```
 
 
 ## Problem 4: Automation with GitHub Actions
@@ -55,6 +56,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 8 * * SAT'
+```
 
 
-END
+## END
